@@ -22,7 +22,6 @@ create_and_activate_env(){
 installation_python
 create_and_activate_env
 
-/vagrant/helloworld.py
 
 
 
