@@ -15,5 +15,5 @@ for i in range(n):
     rectangle_area(x1, y1, x2, y2)
 for y in range(w):
     for x in range(h):
-        S = S + 1 - a[x][y]
+        S += 1 - a[x][y]
 print(S)
