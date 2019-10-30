@@ -3,14 +3,8 @@ import argparse
 import getpass
 import requests
 
-
-class variables:
-    git_url = "https://api.github.com"
-    login = "TarasevichVV"
-    password = getpass.getpass()
-
-
 parser = argparse.ArgumentParser()
+parser.add_argument("-login", nargs=1, help="enter you login", required=True)
 parser.add_argument("--version", action="version", version="v0.0.1")
 parser.add_argument("-owner", nargs=1, help="enter a repo owner", required=True)
 parser.add_argument("-repo", nargs=1, help="enter a repo name", required=True)
@@ -24,27 +18,30 @@ parser.add_argument("-commits", help="use for take info about commits info(you m
                     action="store_true")
 args = parser.parse_args()
 
+git_url = "https://api.github.com"
+password = getpass.getpass()
+
 
 def pulls():
     pulls = requests.get(
-        variables.git_url + '/repos/' + args.owner[0] + '/' + args.repo[0] + '/pulls',
-        auth=(variables.login, variables.password))
+        git_url + '/repos/' + args.owner[0] + '/' + args.repo[0] + '/pulls',
+        auth=(args.login[0], password))
     return pulls.json()
 
 
 def files():
     files = requests.get(
-        variables.git_url + '/repos/' + args.owner[0] + '/' + args.
+        git_url + '/repos/' + args.owner[0] + '/' + args.
         repo[0] + '/pulls/' + args.pull_number[0] + '/files',
-        auth=(variables.login, variables.password))
+        auth=(args.login[0], password))
     return files.json()
 
 
 def commits():
     commits = requests.get(
-        variables.git_url + '/repos/' + args.owner[0] + '/' + args.
+        git_url + '/repos/' + args.owner[0] + '/' + args.
         repo[0] + '/pulls/' + args.pull_number[0] + '/commits',
-        auth=(variables.login, variables.password))
+        auth=(args.login[0], password))
     return commits.json()
 
 
