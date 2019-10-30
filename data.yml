@@ -1,0 +1,16 @@
+apache_vhosts:
+- servername: super-server1@gold.som
+  documentroot: /root/secret/notsecret/safe
+  serveradmin: megaAdmin
+  directorypath: /secretPath
+  port: 8080
+- servername: super-server2@gold.som
+  documentroot: /root/secret/notsecret/safe
+  serveradmin: megaAdmin
+  directorypath: /secretPath
+  port: 8081
+- servername: super-server32@gold.som
+  documentroot: /root/secret/notsecret/safe
+  serveradmin: megaAdmin
+  directorypath: /secretPath
+  port: 8082
